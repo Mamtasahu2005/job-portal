@@ -1,0 +1,25 @@
+{
+  "name": "tinyfish-careers-portal",
+  "version": "1.0.0",
+  "description": "TinyFish-powered AI Job & Internship Finder - pulling live openings across career portals with deep matching and agent verification.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^4.22.3"
+  },
+  "keywords": [
+    "tinyfish",
+    "jobs",
+    "internships",
+    "agent",
+    "search",
+    "fetch",
+    "careers"
+  ],
+  "author": "Antigravity Builder",
+  "license": "MIT"
+}
