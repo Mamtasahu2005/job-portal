@@ -1,8 +1,10 @@
-# 🐟 TinyFish Careers Finder & Live Portal
+# 🐟 JobsPlanet — TinyFish Careers Finder & Live Portal
 
 > **TinyBounties Challenge Submission — Student Essentials Category**  
 > **Scoring Tier:** 3+ Endpoints (`Search`, `Fetch`, `Agent`) — **200 Points Tier**  
-> **Submission Type:** Agentic App / Skill
+> **Submission Type:** Agentic App / Skill  
+> **Live Deployed Demo:** [https://stylish-ago-contest-linux.trycloudflare.com](https://stylish-ago-contest-linux.trycloudflare.com)  
+> **GitHub Repository:** [https://github.com/Mamtasahu2005/job-portal](https://github.com/Mamtasahu2005/job-portal)  
 
 ---
 
