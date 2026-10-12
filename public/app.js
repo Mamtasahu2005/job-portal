@@ -285,6 +285,24 @@ function setupEventListeners() {
   document.getElementById('btnModalSaveJob').addEventListener('click', () => {
     if (activeJob) toggleSaveJob(activeJob);
   });
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parent = btn.closest('.faq-item');
+      const wasActive = parent.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+        const icon = item.querySelector('.faq-icon');
+        if (icon) icon.textContent = '+';
+      });
+      if (!wasActive) {
+        parent.classList.add('active');
+        const icon = parent.querySelector('.faq-icon');
+        if (icon) icon.textContent = '−';
+      }
+    });
+  });
 }
 
 // Execute Search Pipeline

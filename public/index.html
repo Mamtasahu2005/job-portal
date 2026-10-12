@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JobsPlanet — TinyFish AI Job & Internship Portal</title>
+  <title>JobsPlanet — Autonomous AI Job & Internship Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 </head>
 <body>
   <!-- Top Navigation Bar -->
-  <header class="navbar">
+  <header class="navbar" id="topNav">
     <div class="nav-container">
       <div class="brand">
         <a href="#hero" class="brand-link">
@@ -23,9 +23,10 @@
       <nav class="nav-links">
         <a href="#hero" class="nav-link active">Home</a>
         <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#features" class="nav-link">Features</a>
         <a href="#featured-jobs" class="nav-link">Featured Jobs</a>
+        <a href="#faq" class="nav-link">FAQ</a>
         <button class="nav-link-btn" id="btnOpenArchitecture">Architecture (200 Pts)</button>
-        <button class="nav-link-btn" id="btnOpenSaved">Saved Jobs (<span id="savedCount">0</span>)</button>
       </nav>
 
       <div class="nav-actions">
@@ -33,20 +34,23 @@
           <span class="status-dot pulse"></span>
           <span id="apiStatusText">Live Connected</span>
         </div>
+        <button class="nav-btn-saved" id="btnOpenSaved" title="View Saved Applications">
+          ⭐ Saved (<span id="savedCount">0</span>)
+        </button>
         <button class="nav-btn-outline" id="btnOpenSettings">Config</button>
-        <a href="#featured-jobs" class="nav-btn-primary">Browse Jobs</a>
+        <a href="#search-card" class="nav-btn-primary">Find Jobs ⚡</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section Matching Mockup -->
   <section class="hero-section" id="hero">
     <div class="hero-container">
       <!-- Hero Left Copy -->
       <div class="hero-text-col">
         <div class="hero-pill">
-          <span class="pill-icon">✨</span>
-          <span>Autonomous AI Web Search & Verification</span>
+          <span class="pill-sparkle">✨</span>
+          <span>Autonomous AI Web Search · TinyFish 200 PTS Tier</span>
         </div>
 
         <h1 class="hero-title">
@@ -54,21 +58,34 @@
         </h1>
 
         <p class="hero-description">
-          Stop manually refreshing dozens of career pages. Our platform discovers live openings directly from company portals (Greenhouse, Lever, Ashby), deeply extracts noise-free requirements with TinyFish, and matches them to your exact profile.
+          Stop wasting hours on stale job boards. We pull live, un-indexed openings directly from company career sites (Greenhouse, Lever, Ashby), deeply extract noise-free salary and visa data, and autonomously verify active application links.
         </p>
 
         <div class="hero-cta-group">
-          <a href="#search-card" class="btn-hero-primary" id="btnHeroBrowse">Browse Jobs</a>
+          <a href="#search-card" class="btn-hero-primary" id="btnHeroBrowse">Browse Live Openings ⚡</a>
+          <button class="btn-hero-secondary" id="btnHeroDemo">Watch Agent Verify 🤖</button>
+          
           <div class="hero-users-stat">
             <div class="avatar-stack">
-              <span class="avatar-circle av-1">👨‍💻</span>
-              <span class="avatar-circle av-2">👩‍🔬</span>
-              <span class="avatar-circle av-3">🧑‍🎓</span>
+              <span class="avatar-circle av-1">👩‍💻</span>
+              <span class="avatar-circle av-2">👨‍🎓</span>
+              <span class="avatar-circle av-3">🧑‍🔬</span>
             </div>
             <div class="users-text">
-              <strong>20k+</strong>
-              <span>daily active users</span>
+              <strong>20k+ Students</strong>
+              <span>exploring live roles daily</span>
             </div>
+          </div>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="hero-trust-row">
+          <span class="trust-label">Live Discovery Across:</span>
+          <div class="trust-logos">
+            <span class="trust-tag">⚡ Ashby</span>
+            <span class="trust-tag">💼 Lever</span>
+            <span class="trust-tag">🌱 Greenhouse</span>
+            <span class="trust-tag">🏢 Workday</span>
           </div>
         </div>
       </div>
@@ -78,13 +95,13 @@
         <div class="hero-image-wrapper">
           <div class="hero-image-bg-glow"></div>
           <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80" 
-               alt="Professional Woman with Laptop" 
+               alt="Professional Candidate with Laptop" 
                class="hero-person-img"
                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80';">
 
           <!-- Floating Badges Matching Mockup -->
           <div class="floating-badge badge-top-right">
-            <div class="floating-badge-icon">💼</div>
+            <div class="floating-badge-icon icon-bag">💼</div>
             <div class="floating-badge-text">
               <strong>250+ Jobs</strong>
               <span>Post Daily</span>
@@ -92,7 +109,7 @@
           </div>
 
           <div class="floating-badge badge-bottom-left">
-            <div class="floating-badge-icon">🛡️</div>
+            <div class="floating-badge-icon icon-shield">🛡️</div>
             <div class="floating-badge-text">
               <strong>STEM OPT Friendly</strong>
               <span>Visa Filtered</span>
@@ -100,7 +117,7 @@
           </div>
 
           <div class="floating-badge badge-bottom-right">
-            <div class="floating-badge-icon">⚡</div>
+            <div class="floating-badge-icon icon-bolt">⚡</div>
             <div class="floating-badge-text">
               <strong>TinyFish Agent</strong>
               <span>100% Live Verified</span>
@@ -130,6 +147,9 @@
           <button class="preset-chip" data-role="Frontend Engineer" data-seniority="Junior / Entry-Level" data-location="New York, NY" data-visa="false" data-skills="React,TypeScript,Next.js">
             💻 Frontend Engineer (NY / Hybrid)
           </button>
+          <button class="preset-chip" data-role="Backend Engineer" data-seniority="Internship" data-location="Remote" data-visa="true" data-skills="Go,Java,Kubernetes">
+            ⚙️ Backend Systems Intern
+          </button>
         </div>
       </div>
 
@@ -137,7 +157,7 @@
         <div class="search-fields-row">
           <!-- Role -->
           <div class="field-item flex-2">
-            <label for="roleInput"><span class="field-icon">💼</span> Target Role</label>
+            <label for="roleInput"><span class="field-icon">💼</span> Target Role or Keywords</label>
             <input type="text" id="roleInput" placeholder="e.g. Software Engineer Intern, Machine Learning" value="Software Engineer Intern" required>
           </div>
 
@@ -156,7 +176,7 @@
 
           <!-- Location -->
           <div class="field-item flex-1">
-            <label for="locationInput"><span class="field-icon">📍</span> Location</label>
+            <label for="locationInput"><span class="field-icon">📍</span> Location Preference</label>
             <input type="text" id="locationInput" placeholder="e.g. Remote, San Francisco, New York" value="Remote">
           </div>
 
@@ -165,7 +185,7 @@
             <button type="submit" class="btn-search-primary" id="searchSubmitBtn">
               <span class="btn-spinner hidden" id="searchSpinner"></span>
               <span class="btn-icon">🔍</span>
-              <span class="btn-text">Search Job</span>
+              <span class="btn-text">Find Live Jobs</span>
             </button>
           </div>
         </div>
@@ -180,7 +200,7 @@
             </label>
             <div class="visa-text">
               <span class="visa-title">Requires Visa Sponsorship / STEM OPT Friendly</span>
-              <span class="visa-sub">Boosts openings offering H-1B or F-1 OPT eligibility</span>
+              <span class="visa-sub">Prioritizes openings offering H-1B or F-1 OPT eligibility</span>
             </div>
           </div>
 
@@ -204,14 +224,14 @@
     </div>
   </section>
 
-  <!-- Live Pipeline Telemetry Drawer / Monitor -->
+  <!-- Live Pipeline Telemetry Monitor -->
   <section class="telemetry-bar-section">
     <div class="telemetry-bar-container">
       <div class="telemetry-bar-header">
         <div class="telemetry-title-group">
           <span class="pulse-indicator"></span>
           <strong>TinyFish Live Telemetry Pipeline</strong>
-          <span class="scoring-tag">🏆 200 PTS Tier (Search + Fetch + Agent)</span>
+          <span class="scoring-tag">🏆 200 PTS Tier Active (Search + Fetch + Agent)</span>
         </div>
         
         <div class="pipeline-steps-chips">
@@ -237,7 +257,7 @@
         </div>
 
         <button class="btn-toggle-logs" id="btnToggleLogs">
-          <span id="logToggleIcon">▼</span> Live Stream
+          <span id="logToggleIcon">▼</span> Stream Logs
         </button>
       </div>
 
@@ -246,78 +266,132 @@
           <div class="log-entry system">
             <span class="log-time">00:00:00</span>
             <span class="log-tag">[SYSTEM]</span>
-            <span class="log-msg">TinyFish Careers Portal active. 3 endpoints ready: Search, Fetch, Agent.</span>
+            <span class="log-msg">JobsPlanet initialized. 3 TinyFish endpoints active: Search, Fetch, Agent.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How It Works Section (Matching Image's 4-step Cards) -->
+  <!-- How It Works Section Matching Mockup -->
   <section class="how-it-works-section" id="how-it-works">
     <div class="section-container">
       <div class="section-header text-center">
         <span class="section-tag">How It Works</span>
         <h2 class="section-title">Easy Steps To Get Your Dream Job With Our Platform</h2>
-        <p class="section-subtitle">A seamless 4-step workflow powered by live web discovery and autonomous agent verification.</p>
+        <p class="section-subtitle">An automated 4-step workflow connecting your profile directly with live career portal infrastructure.</p>
       </div>
 
       <div class="steps-grid">
         <!-- Step 1 -->
         <div class="step-card">
+          <div class="step-number-pill">01</div>
           <div class="step-icon-box icon-blue">
             <span>⚙️</span>
           </div>
           <h3 class="step-card-title">Set Preferences</h3>
           <p class="step-card-desc">
-            Define your role, seniority (internship to senior), location, and visa sponsorship requirements (F-1 / STEM OPT / H-1B).
+            Define your dream role, seniority, location mode, tech stack, and visa sponsorship needs (F-1 / STEM OPT / H-1B).
           </p>
         </div>
 
         <!-- Step 2 -->
         <div class="step-card">
+          <div class="step-number-pill">02</div>
           <div class="step-icon-box icon-purple">
             <span>🔍</span>
           </div>
           <h3 class="step-card-title">TinyFish Search</h3>
           <p class="step-card-desc">
-            Live discovery searches across Greenhouse, Lever, Ashby, and company career portals, pulling fresh real-time web listings.
+            Live discovery agent queries real-time Greenhouse, Lever, and Ashby career boards, pulling un-indexed fresh web openings.
           </p>
         </div>
 
         <!-- Step 3 -->
         <div class="step-card">
+          <div class="step-number-pill">03</div>
           <div class="step-icon-box icon-cyan">
             <span>⚡</span>
           </div>
           <h3 class="step-card-title">TinyFish Fetch</h3>
           <p class="step-card-desc">
-            Renders JavaScript-heavy career pages, strips noise, and extracts clean Markdown to parse salaries, required skills, and visa clauses.
+            Renders client-side JS pages, cuts navigation noise, and extracts clean Markdown to parse exact compensation and visa clauses.
           </p>
         </div>
 
         <!-- Step 4 -->
         <div class="step-card">
+          <div class="step-number-pill">04</div>
           <div class="step-icon-box icon-emerald">
             <span>🤖</span>
           </div>
           <h3 class="step-card-title">TinyFish Agent</h3>
           <p class="step-card-desc">
-            Goal-driven browser automation navigates directly to the application form, inspects screening questions, and confirms active openings.
+            Autonomous browser agent navigates directly to the application form, inspects screening questions, and verifies active openings.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services / Value Banner -->
+  <!-- Platform Features / Value Proposition Grid -->
+  <section class="features-section" id="features">
+    <div class="section-container">
+      <div class="section-header text-center">
+        <span class="section-tag">Student Essentials</span>
+        <h2 class="section-title">Engineered Specifically For Students & Job Seekers</h2>
+        <p class="section-subtitle">Built to solve the real frustrations of applying to tech jobs and internships.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-item-card">
+          <div class="feature-icon-bubble">🛡️</div>
+          <h3>Visa & STEM OPT Intelligence</h3>
+          <p>Scans job descriptions for explicit H-1B sponsorship and F-1 OPT eligibility, while filtering out roles requiring security clearance or US citizenship.</p>
+        </div>
+
+        <div class="feature-item-card">
+          <div class="feature-icon-bubble">💰</div>
+          <h3>Real Compensation Parsing</h3>
+          <p>Extracts hourly intern wages (e.g. $33–$75/hr) and monthly stipends ($10,500/mo) directly from unstructured job specifications.</p>
+        </div>
+
+        <div class="feature-item-card">
+          <div class="feature-icon-bubble">🎯</div>
+          <h3>Transparent 5-Pillar Matching</h3>
+          <p>See exactly why a role fits: Role (+35), Seniority (+20), Location (+20), Visa (+15), and Tech Stack overlap (+10).</p>
+        </div>
+
+        <div class="feature-item-card">
+          <div class="feature-icon-bubble">🚀</div>
+          <h3>Direct 1-Click Apply Links</h3>
+          <p>Skip misleading job board redirects. Land directly on the company's official Lever, Greenhouse, or Ashby application form.</p>
+        </div>
+
+        <div class="feature-item-card">
+          <div class="feature-icon-bubble">🧹</div>
+          <h3>Smart Cross-Portal Deduplication</h3>
+          <p>Automatically canonicalizes and merges duplicate postings syndicated across boards so you never see the same listing twice.</p>
+        </div>
+
+        <div class="feature-item-card">
+          <div class="feature-icon-bubble">🤖</div>
+          <h3>Autonomous Form Verification</h3>
+          <p>TinyFish Agent tests application accessibility, identifies screening friction, and ensures you never apply to an expired job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services / Value Banner Matching Mockup -->
   <section class="services-banner-section">
     <div class="section-container">
       <div class="services-banner-card">
         <div class="services-banner-text">
-          <span class="banner-tag">Student Essentials</span>
+          <span class="banner-tag">Built For Students</span>
           <h2>Our Services To Help You Get Hired By Great Companies</h2>
-          <p>We combine multi-portal ATS crawling, noise-free Markdown extraction, and intelligent match scoring so you never waste time on stale listings.</p>
+          <p>We combine multi-portal ATS discovery, noise-free Markdown extraction, and intelligent match scoring so you spend less time refreshing pages and more time interviewing.</p>
+          <a href="#featured-jobs" class="banner-btn-white">Browse Featured Openings ↗</a>
         </div>
 
         <div class="services-stats-grid">
@@ -373,21 +447,31 @@
       </div>
 
       <div class="results-stats-row">
-        <span class="results-count-badge" id="resultsTotalBadge">10 found</span>
-        <span class="dedup-tag">✓ Deduplicated & Canonicalized</span>
+        <span class="results-count-badge" id="resultsTotalBadge">Loading live jobs...</span>
+        <span class="dedup-tag">✓ Deduplicated & Live Verified</span>
       </div>
 
       <!-- Job Cards Grid -->
       <div class="jobs-grid" id="jobsGrid">
-        <!-- Dynamically rendered -->
+        <div class="empty-state">
+          <div class="empty-icon">⏳</div>
+          <h3>Fetching live opportunities...</h3>
+          <p>Connecting to TinyFish Search and Fetch to retrieve active openings from Ashby and Lever.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section Matching Mockup -->
+  <!-- Student Testimonials Section Matching Mockup -->
   <section class="testimonials-section">
     <div class="section-container">
-      <div class="testimonial-card">
+      <div class="section-header text-center">
+        <span class="section-tag">Community Feedback</span>
+        <h2 class="section-title">What Students Say About JobsPlanet</h2>
+        <p class="section-subtitle">Real experiences from students who automated their career search.</p>
+      </div>
+
+      <div class="testimonials-slider-card">
         <div class="testimonial-person">
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Student Profile" class="testimonial-avatar">
           <div class="testimonial-info">
@@ -398,7 +482,74 @@
         </div>
         <div class="testimonial-quote">
           <span class="quote-mark">“</span>
-          <p>I used to spend 4 hours every Saturday manually clicking through Greenhouse and Lever pages. TinyFish Careers Portal found 12 visa-friendly Summer 2026 internships in 10 seconds, verified the application links with its autonomous agent, and saved me weeks of friction.</p>
+          <p>I used to spend 4 hours every Saturday manually clicking through Greenhouse and Lever portals. JobsPlanet found 12 visa-friendly Summer 2026 internships in under 15 seconds, verified the application links with its TinyFish autonomous agent, and saved me weeks of friction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="section-container">
+      <div class="section-header text-center">
+        <span class="section-tag">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Everything you need to know about the platform and TinyFish integration.</p>
+      </div>
+
+      <div class="faq-accordion-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does TinyFish ensure job listings are fresh and not expired?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Unlike traditional job aggregators that cache postings for months, TinyFish Search queries live search engines in real-time with recency filters, and TinyFish Agent navigates directly to the live ATS form to verify that the position is open and actively accepting submissions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does the Visa Sponsorship / STEM OPT filter work?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>When TinyFish Fetch extracts the noise-free Markdown description of a job, our analysis engine scans for specific immigration keywords (e.g. "STEM OPT eligible", "visa sponsorship available", "H-1B transfer accepted") while flagging restrictions like "US Citizen only" or "Security Clearance required".</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does this app qualify for the 200 Points tier in TinyBounties?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>The competition requires 3+ endpoints contributing meaningfully. We integrate: 1. <strong>TinyFish Search API</strong> for cross-ATS discovery, 2. <strong>TinyFish Fetch API</strong> for noise-free Markdown extraction & salary/visa parsing, and 3. <strong>TinyFish Agent API</strong> for autonomous application form verification.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I track my job applications on this platform?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! Click the star icon on any card to save it into your personal Application Tracker drawer, where you can update your status (Saved, Applied, Interviewing, Offer, Rejected).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Banner -->
+  <section class="cta-banner-section">
+    <div class="section-container">
+      <div class="cta-banner-card">
+        <h2>Ready To Find Your Dream Role?</h2>
+        <p>Join thousands of students landing high-impact software, AI, and engineering roles without the hassle.</p>
+        <div class="cta-btn-group">
+          <a href="#search-card" class="btn-hero-primary">Start Your Search Now ⚡</a>
+          <button class="btn-outline-modal" onclick="document.getElementById('btnOpenArchitecture').click()">View 200 Pts Architecture 📐</button>
         </div>
       </div>
     </div>
@@ -414,16 +565,17 @@
             The next-generation AI career search engine powered by TinyFish Search, Fetch, and Agent primitives.
           </p>
           <div class="bounty-pill-footer">
-            <span>🏆 Student Essentials · 200 PTS Tier</span>
+            <span>🏆 Student Essentials · 200 PTS Tier Active</span>
           </div>
         </div>
 
         <div class="footer-links-col">
-          <h4>Platform</h4>
+          <h4>Navigation</h4>
           <a href="#hero">Home</a>
           <a href="#how-it-works">How It Works</a>
+          <a href="#features">Features</a>
           <a href="#featured-jobs">Featured Jobs</a>
-          <a href="javascript:void(0)" onclick="document.getElementById('btnOpenArchitecture').click()">TinyFish Architecture</a>
+          <a href="#faq">FAQ</a>
         </div>
 
         <div class="footer-links-col">
@@ -446,7 +598,7 @@
 
       <div class="footer-bottom-row">
         <p>© 2026 JobsPlanet · Powered by TinyFish Web Infrastructure · MIT License</p>
-        <p>Built for the TinyBounties Community</p>
+        <p>Built for the TinyBounties Community · Student Essentials</p>
       </div>
     </div>
   </footer>
@@ -491,9 +643,7 @@
             </div>
           </div>
 
-          <div class="markdown-content" id="modalMarkdownContent">
-            <!-- Full markdown rendered here -->
-          </div>
+          <div class="markdown-content" id="modalMarkdownContent"></div>
         </div>
 
         <!-- Tab 2: Match Breakdown -->
@@ -503,9 +653,7 @@
               <span class="dial-score" id="modalBreakdownScore">90%</span>
               <span class="dial-label">Match Score</span>
             </div>
-            <div class="match-reasons-list" id="modalMatchReasons">
-              <!-- Populated dynamically -->
-            </div>
+            <div class="match-reasons-list" id="modalMatchReasons"></div>
           </div>
 
           <div class="skills-comparison">
